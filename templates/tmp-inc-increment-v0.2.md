@@ -1,22 +1,22 @@
-# Filename: Mesh/Types/Increments/(Increment) [X.N.0] - [Name].md
+# Filename: Mesh/Increments/(Increment) [X.N] - [Name].md
 
 ```markdown
 ---
 id: [generate-uuid]
 tags:
-  - "#increment"
-  - "#inc/stream"
-status: [active|completed]
-iteration: X.N.0
+  - "#inc/increment"
+status: [open|closed|deprecated]
+increment: "X.N"
 checkpoint: "[[hyperlink to the latest checkpoint]]"
-template: tmp-inc-stream
+continues:
+/* If this increment continues work from a prior increment, add wikilinks here. Otherwise leave empty. */
+opened: [YYYY-MM-DD]
+template: "[[tmp-inc-increment-v0.2]]"
 ---
 
-[when you iterate, you create a copy of the below with a increased number lik X.N.1]
+# (Increment) [X.N] — [Name]
 
-# (Increment) [X.N.0] — [Name]
-
-*[What this stream delivers]*
+*[What this increment delivers]*
 
 ## Context
 
@@ -67,6 +67,6 @@ if (allPages.length === 0) {
 
 | Date | Version | Change |
 |------|---------|--------|
-| [YYYY-MM-DD] | [X.N.0] | [Change and artifacts, if referecing an artifcat, make sure to be using hyperlinks to that artifact] |
+| [YYYY-MM-DD] | [X.N] | [Change and artifacts, if referencing an artifact, use hyperlinks] |
 (continue)
 ```

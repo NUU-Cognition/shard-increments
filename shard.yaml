@@ -1,20 +1,20 @@
 shard-spec: "0.1.0"
-version: "0.1.0"
+version: "0.3.0"
 name: Increments
 shorthand: inc
-description: Track work using increment.stream.iteration versioning
+description: Group work into loops — open, close, checkpoint
 
 install:
   - source: inst-inc-dashboard.md
     dest: Mesh/(Dashboard) Increments.md
-    once: true
+    mode: once
   - source: inst-inc-checkpoint_init.md
-    dest: Mesh/Types/Increments/(Increment) 1.0.0 - Init.md
-    once: true
+    dest: Mesh/Increments/(Increment) 1.0 - Init.md
+    mode: once
   - source: inst-inc-adhoc_init.md
-    dest: Mesh/Types/Increments/(Increment) 1.A.0 - Adhoc.md
-    once: true
+    dest: Mesh/Increments/(Increment) 1.A - Adhoc.md
+    mode: once
 
 folders:
-  - Mesh/Types/Increments/
+  - Mesh/Increments/
   - Mesh/Archive/Increments/

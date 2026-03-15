@@ -1,27 +1,24 @@
 ---
 id: de55ea33-20bd-4c51-8e97-6fd64a2bdfdf
 tags:
-  - "#dashboard"
   - "#inc/dashboard"
-  - "#managed/plugin/inc"
-  - "#read-only"
+  - "#managed/shard/inc"
 ---
 
 ```dataviewjs
-// Parse version string to sortable number (e.g., "1.4.0" -> 10400, "1.A.0" -> 19900)
+// Parse version string to sortable number (e.g., "4.2" -> 40200, "4.A" -> 49900)
 function parseVersion(v) {
   if (!v) return 0;
   const parts = String(v).split('.');
   const major = parseInt(parts[0]) || 0;
   const minor = parts[1] === 'A' ? 99 : (parseInt(parts[1]) || 0);
-  const patch = parseInt(parts[2]) || 0;
-  return major * 10000 + minor * 100 + patch;
+  return major * 10000 + minor * 100;
 }
 
 function sortByVersion(pages, desc = false) {
   return pages.array().sort((a, b) => {
-    const av = parseVersion(a.iteration);
-    const bv = parseVersion(b.iteration);
+    const av = parseVersion(a.increment);
+    const bv = parseVersion(b.increment);
     return desc ? bv - av : av - bv;
   });
 }
@@ -33,9 +30,19 @@ function formatName(p) {
 // Only look in Mesh/ folder
 const meshPages = (tag) => dv.pages(tag).where(p => p.file.path.startsWith('Mesh/'));
 
+// Loop Health
+dv.header(1, "Loop Health");
+const openLoops = meshPages('#inc/increment').where(p => p.status === 'open').array();
+const openCount = openLoops.length;
+dv.paragraph(`**${openCount} open loop${openCount !== 1 ? 's' : ''}**`);
+
 // Current Checkpoint
 dv.header(1, "Current Checkpoint");
-const checkpoints = meshPages('#inc/checkpoint').array();
+const checkpoints = meshPages('#inc/checkpoint').array().sort((a, b) => {
+  const av = parseVersion(a.increment ?? a.file.name.match(/(\d+\.\d+)/)?.[1]);
+  const bv = parseVersion(b.increment ?? b.file.name.match(/(\d+\.\d+)/)?.[1]);
+  return bv - av;
+});
 if (checkpoints.length > 0) {
   const current = checkpoints[0];
   dv.paragraph(dv.fileLink(current.file.path, false, current.file.name.replace(/^\(Increment\)\s*/, '')));
@@ -43,43 +50,30 @@ if (checkpoints.length > 0) {
   dv.paragraph("*No checkpoints found*");
 }
 
-// Active Streams
-dv.header(1, "Active Streams");
-const active = sortByVersion(
-  meshPages('#inc/stream').where(p => p.status === 'active')
+// Open Loops
+dv.header(1, "Open Loops");
+const open = sortByVersion(
+  meshPages('#inc/increment').where(p => p.status === 'open')
 );
-if (active.length === 0) {
+if (open.length === 0) {
   dv.paragraph("*None*");
 } else {
-  dv.table(["Stream", "Iteration"],
-    active.map(p => [dv.fileLink(p.file.path, false, formatName(p)), p.iteration ?? "—"])
+  dv.table(["Increment", "Version", "Opened"],
+    open.map(p => [dv.fileLink(p.file.path, false, formatName(p)), p.increment ?? "—", p.opened ?? "—"])
   );
 }
 
-// Deferred
-dv.header(1, "Deferred");
-const deferred = sortByVersion(
-  meshPages('#inc/stream').where(p => p.status === 'deferred')
-);
-if (deferred.length === 0) {
-  dv.paragraph("*None*");
-} else {
-  dv.table(["Stream", "Iteration"],
-    deferred.map(p => [dv.fileLink(p.file.path, false, formatName(p)), p.iteration ?? "—"])
-  );
-}
-
-// Recently Completed Streams
-dv.header(1, "Recently Completed Streams");
-const complete = sortByVersion(
-  meshPages('#inc/stream').where(p => p.status === 'completed'),
+// Recently Closed
+dv.header(1, "Recently Closed");
+const closed = sortByVersion(
+  meshPages('#inc/increment').where(p => p.status === 'closed'),
   true
 ).slice(0, 10);
-if (complete.length === 0) {
+if (closed.length === 0) {
   dv.paragraph("*None*");
 } else {
-  dv.table(["Stream", "Iteration"],
-    complete.map(p => [dv.fileLink(p.file.path, false, formatName(p)), p.iteration ?? "—"])
+  dv.table(["Increment", "Version"],
+    closed.map(p => [dv.fileLink(p.file.path, false, formatName(p)), p.increment ?? "—"])
   );
 }
 
