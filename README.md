@@ -23,8 +23,8 @@ X.N = Checkpoint.Increment
 
 | Action | Command |
 |--------|---------|
-| Open a loop | Load [[init-inc]], run [[sk-inc-create]] |
-| Open a loop + brainstorm | Load [[init-inc]], run [[wkfl-inc-create_ntpd]] |
-| Close a loop | [[sk-inc-close]] |
-| New checkpoint | [[sk-inc-checkpoint]] |
-| Validate & health check | [[sk-inc-sync]] |
+| Open a loop | Load [[dev-init-inc]], run [[dev-sk-inc-create]] |
+| Open a loop + brainstorm | Load [[dev-init-inc]], run [[dev-wkfl-inc-create_ntpd]] |
+| Close a loop | [[dev-sk-inc-close]] |
+| New checkpoint | [[dev-sk-inc-checkpoint]] |
+| Validate & health check | [[dev-sk-inc-sync]] |

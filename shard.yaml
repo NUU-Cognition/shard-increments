@@ -3,6 +3,13 @@ version: "0.3.0"
 name: Increments
 shorthand: inc
 description: Group work into loops — open, close, checkpoint
+dependencies:
+  - source: NUU-Cognition/shard-projects
+  - source: NUU-Cognition/shard-flint
+
+types:
+  - name: Increment
+    source: type-inc-increment.md
 
 install:
   - source: inst-inc-dashboard.md

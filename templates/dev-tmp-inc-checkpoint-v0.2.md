@@ -8,7 +8,9 @@ tags:
 consolidates:
   - "[[X-1.N]]"
   (continue)
-template: "[[tmp-inc-checkpoint-v0.2]]"
+template: "[[dev-tmp-inc-checkpoint-v0.2]]"
+authors: /* from .flint/identity.json; omit if no identity set */
+  - "[[@Person Name]]"
 ---
 
 # (Increment) [X.0] — [Checkpoint Name]

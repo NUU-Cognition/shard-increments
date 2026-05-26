@@ -104,22 +104,22 @@ A checkpoint is not a passive roll-up. It is an active verification:
 
 | Skill | File | Purpose |
 |-------|------|---------|
-| Create | `sk-inc-create.md` | Open a new loop with scope and context |
-| Close | `sk-inc-close.md` | Close a loop, verify work landed |
-| Checkpoint | `sk-inc-checkpoint.md` | Create checkpoint, audit coherence, set baseline |
-| Sync | `sk-inc-sync.md` | Validate all increment files, dashboard, and loop health |
+| Create | `dev-sk-inc-create.md` | Open a new loop with scope and context |
+| Close | `dev-sk-inc-close.md` | Close a loop, verify work landed |
+| Checkpoint | `dev-sk-inc-checkpoint.md` | Create checkpoint, audit coherence, set baseline |
+| Sync | `dev-sk-inc-sync.md` | Validate all increment files, dashboard, and loop health |
 
 ## Workflows
 
 | Workflow | File | Purpose |
 |----------|------|---------|
-| Create with Notepad | `wkfl-inc-create_ntpd.md` | Open a loop + start brainstorming in a linked notepad |
+| Create with Notepad | `dev-wkfl-inc-create_ntpd.md` | Open a loop + start brainstorming in a linked notepad |
 
 ## Templates
 
 | Template | File | Purpose |
 |----------|------|---------|
-| Increment | `tmp-inc-increment-v0.2.md` | Standard increment artifact |
-| Checkpoint | `tmp-inc-checkpoint-v0.2.md` | Checkpoint with audit checklist |
-| Adhoc | `tmp-inc-adhoc-v0.2.md` | Adhoc increment for small fixes |
-| Dashboard | `tmp-inc-dashboard-v0.2.md` | Loop health dashboard |
+| Increment | `dev-tmp-inc-increment-v0.2.md` | Standard increment artifact |
+| Checkpoint | `dev-tmp-inc-checkpoint-v0.2.md` | Checkpoint with audit checklist |
+| Adhoc | `dev-tmp-inc-adhoc-v0.2.md` | Adhoc increment for small fixes |
+| Dashboard | `dev-tmp-inc-dashboard-v0.2.md` | Loop health dashboard |

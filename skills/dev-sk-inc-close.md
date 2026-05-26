@@ -1,4 +1,6 @@
-This skill belongs to the Increments shard. Ensure you have [[init-inc]] in context before continuing.
+> [!important] THIS FILE IS AN INSTRUCTION. WHEN REFERENCED IT IS MEANT TO BE TAKEN AS AN ACTION.
+
+This skill belongs to the Increments shard. Ensure you have [[dev-init-inc]] in context before continuing.
 
 # Skill: Close Increment
 
@@ -16,8 +18,8 @@ Close a loop — verify work landed, add closing summary.
    - If tasks remain open, ask user: close them now, move to another increment, or deprecate?
 3. Update `status` in frontmatter from `open` to `closed`
 4. Append a closing log entry: `| YYYY-MM-DD | X.N | Loop closed — [brief summary of what landed] |`
-5. Run [[sk-inc-sync]]
-6. Check if all increments under the current checkpoint are now `closed`. If so, suggest running [[sk-inc-checkpoint]]
+5. Run [[dev-sk-inc-sync]]
+6. Check if all increments under the current checkpoint are now `closed`. If so, suggest running [[dev-sk-inc-checkpoint]]
 
 # Output
 

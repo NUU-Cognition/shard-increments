@@ -5,7 +5,7 @@
 id: [generate-uuid]
 tags:
   - "#inc/dashboard"
-template: "[[tmp-inc-dashboard-v0.2]]"
+template: "[[dev-tmp-inc-dashboard-v0.2]]"
 ---
 ```
 

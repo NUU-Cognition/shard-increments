@@ -1,3 +1,5 @@
+> [!important] THIS FILE IS AN INSTRUCTION. WHEN REFERENCED IT IS MEANT TO BE TAKEN AS AN ACTION.
+
 This skill belongs to the Increments shard. One-time migration from v0.2.0 to v0.3.0.
 
 # Skill: Migrate 0.2.0 → 0.3.0
@@ -12,9 +14,9 @@ Migrate all existing increment files and their references across the Mesh to the
 | Tag `#inc/stream` | Tag `#inc/increment` |
 | Status `active` | Status `open` |
 | Status `completed` | Status `closed` |
-| Template `tmp-inc-stream-v0.1` / `tmp-inc-stream` | Template `tmp-inc-increment-v0.2` |
-| Template `tmp-inc-checkpoint-v0.1` | Template `tmp-inc-checkpoint-v0.2` |
-| Template `tmp-inc-adhoc-v0.1` | Template `tmp-inc-adhoc-v0.2` |
+| Template `dev-tmp-inc-stream-v0.1` / `dev-tmp-inc-stream` | Template `dev-tmp-inc-increment-v0.2` |
+| Template `dev-tmp-inc-checkpoint-v0.1` | Template `dev-tmp-inc-checkpoint-v0.2` |
+| Template `dev-tmp-inc-adhoc-v0.1` | Template `dev-tmp-inc-adhoc-v0.2` |
 | Location `Mesh/Types/Increments/` | Location `Mesh/Increments/` |
 | Filename `(Increment) X.N.0 - Name.md` | Filename `(Increment) X.N - Name.md` |
 
@@ -33,10 +35,10 @@ sed -i '' 's/^status: active$/status: open/' *.md
 sed -i '' 's/^status: completed$/status: closed/' *.md
 
 # Templates
-sed -i '' 's/\[\[tmp-inc-stream-v0\.1\]\]/[[tmp-inc-increment-v0.2]]/g' *.md
-sed -i '' 's/\[\[tmp-inc-stream\]\]/[[tmp-inc-increment-v0.2]]/g' *.md
-sed -i '' 's/\[\[tmp-inc-checkpoint-v0\.1\]\]/[[tmp-inc-checkpoint-v0.2]]/g' *.md
-sed -i '' 's/\[\[tmp-inc-adhoc-v0\.1\]\]/[[tmp-inc-adhoc-v0.2]]/g' *.md
+sed -i '' 's/\[\[tmp-inc-stream-v0\.1\]\]/[[dev-tmp-inc-increment-v0.2]]/g' *.md
+sed -i '' 's/\[\[tmp-inc-stream\]\]/[[dev-tmp-inc-increment-v0.2]]/g' *.md
+sed -i '' 's/\[\[tmp-inc-checkpoint-v0\.1\]\]/[[dev-tmp-inc-checkpoint-v0.2]]/g' *.md
+sed -i '' 's/\[\[tmp-inc-adhoc-v0\.1\]\]/[[dev-tmp-inc-adhoc-v0.2]]/g' *.md
 
 # Version format in increment: field — drop trailing .0
 sed -i '' -E 's/^increment: "([0-9]+\.[0-9A]+)\.0"$/increment: "\1"/' *.md

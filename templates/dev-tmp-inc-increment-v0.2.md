@@ -11,7 +11,9 @@ checkpoint: "[[hyperlink to the latest checkpoint]]"
 continues:
 /* If this increment continues work from a prior increment, add wikilinks here. Otherwise leave empty. */
 opened: [YYYY-MM-DD]
-template: "[[tmp-inc-increment-v0.2]]"
+template: "[[dev-tmp-inc-increment-v0.2]]"
+authors: /* from .flint/identity.json; omit if no identity set */
+  - "[[@Person Name]]"
 ---
 
 # (Increment) [X.N] — [Name]

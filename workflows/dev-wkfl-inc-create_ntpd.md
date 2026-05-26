@@ -1,4 +1,6 @@
-This workflow belongs to the Increments shard. Ensure you have [[init-inc]] in context before continuing.
+> [!important] THIS FILE IS AN INSTRUCTION. WHEN REFERENCED IT IS MEANT TO BE TAKEN AS AN ACTION.
+
+This workflow belongs to the Increments shard. Ensure you have [[dev-init-inc]] in context before continuing.
 
 # Workflow: Create Increment with Notepad
 
@@ -15,7 +17,7 @@ Open a new loop and immediately start a linked notepad for brainstorming its con
 
 1. Find current checkpoint (highest `X.0`)
 2. Find next increment number (highest `N + 1`, skipping `A`)
-3. Create the increment using [[tmp-inc-increment-v0.2]] with:
+3. Create the increment using [[dev-tmp-inc-increment-v0.2]] with:
    - `increment`: `"X.N"`
    - Name: user-provided or "Exploration"
    - Status: `open`
@@ -23,7 +25,7 @@ Open a new loop and immediately start a linked notepad for brainstorming its con
    - Context: "See linked notepad for brainstorming"
    - Scope: minimal placeholder (to be filled after brainstorming)
 4. Add log entry: `| YYYY-MM-DD | X.N | Created with linked notepad for brainstorming |`
-5. Run [[sk-inc-sync]]
+5. Run [[dev-sk-inc-sync]]
 
 Present the created increment to the user. Once confirmed, proceed to Stage 2.
 
