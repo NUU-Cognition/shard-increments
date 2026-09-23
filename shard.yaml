@@ -1,12 +1,13 @@
 shard-spec: "0.3.0"
 id: 504ded40-6ed0-4e03-a657-61283f258636
-version: "0.3.0"
+version: "0.3.1"
 name: Increments
 shorthand: inc
 description: Group work into loops — open, close, checkpoint
 dependencies:
   - source: NUU-Cognition/shard-projects
   - source: NUU-Cognition/shard-flint
+    version: "0.3.0"
 
 types:
   - name: Increment
