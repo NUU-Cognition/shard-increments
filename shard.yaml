@@ -3,13 +3,14 @@ id: 504ded40-6ed0-4e03-a657-61283f258636
 org: nuu-cognition
 source:
   id: fab2d025-0e1a-442d-92fa-3711eaf9280f
-version: "0.3.0"
+version: "0.3.1"
 name: Increments
 shorthand: inc
 description: Group work into loops — open, close, checkpoint
 dependencies:
-  "@nuu-cognition/projects": ""
-  "@nuu-cognition/flint": ""
+  - source: NUU-Cognition/shard-projects
+  - source: NUU-Cognition/shard-flint
+    version: "0.3.0"
 
 types:
   - name: Increment
